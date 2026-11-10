@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090c0b"><title>Admin — freelance.community</title>
-  <link rel="icon" href="images/freelancefavicon.png"><link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="images/freelancefavicon.png"><link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="admin-posts.css">
 </head>
 <body>
   <main class="admin-shell">
@@ -11,12 +11,14 @@
     <section id="gate" class="gate-card"><p class="eyebrow">PRIVATE WORKSPACE</p><h1 id="gate-title">Admin access</h1><p id="gate-copy">Enter your admin access code to manage projects and members on this browser.</p><form id="gate-form"><label for="access-code">Access code</label><input id="access-code" type="password" autocomplete="current-password" required><button class="primary">Continue</button><p id="gate-error" role="alert"></p></form><small>Your access code and data are stored in this browser.</small></section>
     <div id="admin-app" hidden>
       <div class="page-heading"><div><p class="eyebrow">COMMUNITY CONTROL</p><h1>Manage your community</h1><p>Changes are saved in this browser and appear on the home page.</p></div><button id="lock" class="secondary">Lock admin</button></div>
-      <nav class="tabs"><button class="tab active" data-panel="projects">Projects <span id="project-count"></span></button><button class="tab" data-panel="members">Members <span id="member-count"></span></button></nav>
+      <nav class="tabs"><button class="tab active" data-panel="projects">Projects <span id="project-count"></span></button><button class="tab" data-panel="members">Members <span id="member-count"></span></button><button class="tab" data-panel="posts">Community posts <span id="post-count"></span></button></nav>
       <section id="projects-panel" class="panel"><div class="panel-heading"><div><h2>Available projects</h2><p>Add a project or edit and remove existing listings.</p></div><button class="primary" id="new-project">＋ Add project</button></div><div id="project-list" class="record-list"></div></section>
       <section id="members-panel" class="panel" hidden><div class="panel-heading"><div><h2>Community members</h2><p>Manage the freelancer profiles shown on the home page.</p></div><button class="primary" id="new-member">＋ Add member</button></div><div id="member-list" class="record-list"></div></section>
+      <section id="posts-panel" class="panel" hidden><div class="panel-heading"><div><h2>Community posts</h2><p>Edit or remove posts shared by freelancers.</p></div></div><div id="post-list" class="record-list"></div></section>
       <p class="storage-note">This preview stores changes in this browser only. For owner-only access on a live site, connect a server-side account and database.</p>
     </div>
   </main>
   <dialog id="editor" class="editor"><form id="editor-form"><button type="button" class="close" aria-label="Close">×</button><p class="eyebrow" id="editor-kicker">EDIT</p><h2 id="editor-title">Edit record</h2><div id="editor-fields" class="fields"></div><button class="primary save">Save changes</button></form></dialog>
+  <dialog id="post-editor" class="editor"><form id="post-editor-form"><button type="button" class="close" aria-label="Close">×</button><p class="eyebrow">ADMIN POST EDIT</p><h2>Edit community post</h2><label>Display name<input name="name" required></label><label>Professional title<input name="role"></label><label>Post text<textarea name="copy" rows="5" required></textarea></label><label>Portfolio tile text<input name="tile"></label><label>Replace post image<input name="image" type="file" accept="image/*"></label><label class="inline-check"><input name="removeImage" type="checkbox"> Remove current image</label><button class="primary save">Save post</button></form></dialog>
   <script src="admin.js"></script>
 </body></html>

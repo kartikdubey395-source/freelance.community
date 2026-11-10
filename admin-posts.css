@@ -1,0 +1,2 @@
+.editor form>label{display:grid;gap:7px;margin:12px 0;font-size:12px;font-weight:600}.editor input,.editor textarea{width:100%;padding:11px;border:1px solid #ffffff2a;border-radius:7px;background:#0b0f0d;color:#fff;font:inherit}.editor textarea{resize:vertical}
+.editor input[type=checkbox]{width:auto}.editor form>label.inline-check{display:flex;align-items:center;gap:8px}
