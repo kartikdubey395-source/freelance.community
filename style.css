@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "FreeFat";
+    src: url("./fonts/Free%20Fat%20Font%20V1.2%20-%20DCU/FREEFATFONT-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FreeFat";
+    src: url("./fonts/Free%20Fat%20Font%20V1.2%20-%20DCU/FREEFATFONT-Slanted.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: dark;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    background: #080a0b;
+    color: #f7f8f7;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
+body { min-height: 100svh; overflow-x: hidden; background: #080a0b; }
+a { color: inherit; }
+
+.background-video {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(.72) brightness(.68);
+    transform: scale(1.015);
+}
+
+.scene-shade {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 72% 44%, rgba(8, 12, 13, .08) 0%, rgba(8, 10, 11, .34) 45%, rgba(8, 10, 11, .60) 100%),
+        linear-gradient(90deg, rgba(6, 8, 9, .87) 0%, rgba(6, 8, 9, .65) 39%, rgba(6, 8, 9, .24) 100%),
+        linear-gradient(0deg, rgba(6, 8, 9, .54) 0%, transparent 30%, rgba(6, 8, 9, .18) 100%);
+}
+
+.page-content { position: relative; z-index: 2; min-height: 100svh; display: flex; flex-direction: column; }
+
+.site-header {
+    position: absolute;
+    top: 26px;
+    left: 5.2%;
+    right: 5.2%;
+    min-height: 70px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 16px;
+    background: rgba(18, 21, 22, .39);
+    box-shadow: 0 14px 46px rgba(0,0,0,.15), inset 0 1px rgba(255,255,255,.035);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: fade-in .8s ease both;
+}
+
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+.logo { width: 36px; height: 36px; object-fit: cover; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); }
+.brand-name { font-family: "FreeFat", sans-serif; font-size: 25px; letter-spacing: .15px; line-height: 1; }
+.brand-dot { color: #b6e6c1; }
+.header-note { display: flex; align-items: center; gap: 9px; color: rgba(245,247,245,.62); font-size: 11px; letter-spacing: .055em; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #a8d9b3; box-shadow: 0 0 12px rgba(168,217,179,.65); }
+
+main { flex: 1; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 122px 10.2% 94px; }
+.hero { width: min(100%, 1080px); margin-top: 20px; }
+.eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 25px 3px; color: rgba(234,239,235,.68); font-size: 10px; font-weight: 600; letter-spacing: .22em; animation: fade-up .8s .1s both; }
+.eyebrow span { display: inline-block; width: 28px; height: 1px; background: #b1d8ba; }
+.hero h1 { max-width: 1040px; margin: 0; color: #fff; font-family: "FreeFat", "Helvetica Neue", sans-serif; font-size: clamp(62px, 7vw, 100px); font-weight: 400; letter-spacing: .015em; line-height: .91; text-wrap: balance; text-shadow: 0 9px 50px rgba(0,0,0,.24); animation: fade-up .9s .18s both; }
+.hero h1 span { color: rgba(247,248,247,.91); }
+.question { margin: 29px 0 22px 3px; color: rgba(245,247,245,.73); font-size: clamp(16px, 1.35vw, 19px); font-weight: 400; letter-spacing: .015em; animation: fade-up .8s .3s both; }
+.role-actions { display: flex; align-items: center; gap: 12px; animation: fade-up .8s .4s both; }
+.role-button { min-width: 174px; min-height: 54px; padding: 0 21px; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; border: 1px solid transparent; border-radius: 9px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .005em; transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease; }
+.role-button span { font-size: 16px; transition: transform .22s ease; }
+.role-button:hover { transform: translateY(-2px); }
+.role-button:hover span { transform: translate(2px, -2px); }
+.role-button:focus-visible { outline: 2px solid #c9f0d3; outline-offset: 4px; }
+.role-primary { color: #111514; background: #f4f5f2; box-shadow: 0 10px 28px rgba(0,0,0,.22); }
+.role-primary:hover { background: #fff; box-shadow: 0 15px 34px rgba(0,0,0,.32); }
+.role-secondary { color: #f4f5f4; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.075); box-shadow: inset 0 1px rgba(255,255,255,.06); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.role-secondary:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.48); }
+.hero-note { margin: 24px 0 0 3px; color: rgba(233,237,234,.46); font-size: 11px; letter-spacing: .035em; animation: fade-up .8s .5s both; }
+
+.bottom-line { position: absolute; bottom: 30px; left: 5.2%; right: 5.2%; display: flex; align-items: center; gap: 15px; color: rgba(240,243,240,.45); font-size: 9px; font-weight: 600; letter-spacing: .17em; animation: fade-in 1s .65s both; }
+.line-mark { width: 45px; height: 1px; background: rgba(255,255,255,.23); }
+.bottom-line span:last-child { margin-left: auto; color: rgba(240,243,240,.63); }
+.bottom-line i { padding: 0 4px; color: rgba(240,243,240,.35); font-style: normal; }
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 700px) {
+    .scene-shade { background: radial-gradient(ellipse at 66% 35%, rgba(6,8,9,.22), rgba(6,8,9,.6) 75%), linear-gradient(90deg, rgba(6,8,9,.68), rgba(6,8,9,.28)), linear-gradient(0deg, rgba(6,8,9,.65), transparent 55%); }
+    .site-header { top: 16px; left: 18px; right: 18px; min-height: 62px; padding: 0 15px; border-radius: 13px; }
+    .logo { width: 32px; height: 32px; }
+    .brand-name { font-size: 22px; }
+    .header-note { max-width: 130px; font-size: 9px; letter-spacing: .025em; }
+    main { padding: 112px 25px 86px; }
+    .hero { margin-top: 8px; }
+    .eyebrow { margin: 0 0 21px 2px; font-size: 9px; letter-spacing: .17em; }
+    .hero h1 { font-size: clamp(46px, 11.2vw, 72px); line-height: 1.04; letter-spacing: -.035em; }
+    .question { margin-top: 26px; font-size: 16px; }
+    .role-actions { width: 100%; flex-direction: column; align-items: stretch; gap: 10px; }
+    .role-button { width: 100%; min-height: 54px; }
+    .hero-note { margin-top: 19px; font-size: 10px; }
+    .bottom-line { bottom: 19px; left: 25px; right: 25px; font-size: 8px; letter-spacing: .1em; }
+    .line-mark { width: 24px; }
+}
+
+@media (max-width: 380px) {
+    .header-note { max-width: 96px; }
+    .hero h1 { font-size: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+.sign-in-note{margin-top:9px!important;color:rgba(233,237,234,.55)!important}.sign-in-note a{color:rgba(255,255,255,.88);text-underline-offset:3px}.sign-in-note a:hover{color:#b6e6c1}

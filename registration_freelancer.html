@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080a0b">
+    <title>Freelancer registration — freelance.community</title>
+    <link rel="icon" type="image/png" href="images/freelancefavicon.png">
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+        <source src="video/login bg.mp4" type="video/mp4">
+    </video>
+    <div class="scene-shade" aria-hidden="true"></div>
+
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="freelance.community home">
+                <img src="images/freelancefavicon.png" alt="" class="logo">
+                <span class="brand-name">freelance<span class="brand-dot">.</span></span>
+            </a>
+            <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+        </header>
+
+        <main class="registration-layout">
+            <section class="intro">
+                <p class="eyebrow"><span></span> MAKE YOUR NEXT MOVE</p>
+                <h1>Start as a<br><span>freelancer.</span></h1>
+                <p class="intro-copy">Bring your skills into a community built for emerging talent and meaningful work.</p>
+                <p class="step-note"><span>01</span> YOUR PROFILE <i></i> <span>02</span> YOUR OPPORTUNITY</p>
+            </section>
+
+            <section class="form-card" aria-labelledby="form-title">
+                <div class="form-heading">
+                    <p class="form-kicker">FREELANCER PROFILE</p>
+                    <h2 id="form-title">Let’s get to know you.</h2>
+                    <p>Share a few details to get started.</p>
+                </div>
+                <form action="index.php" method="post">
+                    <div class="field-grid">
+                        <div class="field field-wide">
+                            <label for="username">Full name</label>
+                            <input type="text" id="username" name="name" placeholder="Your name" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Contact number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="10-digit number" autocomplete="tel" inputmode="numeric" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="field">
+                            <label for="dob">Date of birth</label>
+                            <input type="date" id="dob" name="date_of_birth" autocomplete="bday" required>
+                        </div>
+                        <fieldset class="field gender-field">
+                            <legend>Gender</legend>
+                            <div class="choice-row">
+                                <label class="choice"><input type="radio" name="gender" value="male" required><span>Male</span></label>
+                                <label class="choice"><input type="radio" name="gender" value="female"><span>Female</span></label>
+                                <label class="choice"><input type="radio" name="gender" value="prefer_not_to_say"><span>Prefer not to say</span></label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <label class="terms-check"><input type="checkbox" id="verificationTnC" name="terms" required><span>I agree to the <a href="terms and conditions.html" target="_blank" rel="noopener">terms and conditions</a>.</span></label>
+                    <button type="submit" class="submit-btn">Create freelancer profile <span aria-hidden="true">↗</span></button>
+                    <p class="form-footnote">Your next opportunity starts with an introduction.</p>
+                </form>
+            </section>
+        </main>
+    </div>
+<script src="auth.js"></script>
+</body>
+</html>

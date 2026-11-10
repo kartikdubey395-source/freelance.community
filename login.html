@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f3"><title>Sign in — freelance.community</title>
+  <link rel="icon" href="images/freelancefavicon.png"><link rel="stylesheet" href="home.css">
+</head>
+<body class="auth-page">
+  <video class="auth-video" autoplay muted loop playsinline aria-hidden="true"><source src="video/login bg.mp4" type="video/mp4"></video>
+  <div class="auth-shade" aria-hidden="true"></div>
+  <main class="auth-card">
+    <a class="brand" href="index.html"><img src="images/freelancefavicon.png" alt=""><span>freelance<span class="brand-dot">.</span></span></a>
+    <p class="eyebrow">YOUR COMMUNITY, READY WHEN YOU ARE</p><h1>Welcome back.</h1>
+    <p class="muted">Sign in to find work, meet collaborators, and keep your projects moving.</p>
+    <form id="signin-form"><label for="signin-name">Your name</label><input id="signin-name" name="name" autocomplete="name" placeholder="Kartik Dubey" required>
+      <label for="signin-email">Email address</label><input id="signin-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <button class="button button-primary full" type="submit">Continue to your workspace <span>↗</span></button>
+      <p class="auth-note">Preview mode: connect your authentication provider to verify accounts securely.</p>
+    </form>
+  </main>
+  <script src="auth.js"></script>
+</body></html>

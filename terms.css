@@ -1,0 +1,47 @@
+@font-face { font-family: "FreeFat"; src: url("./fonts/Free%20Fat%20Font%20V1.2%20-%20DCU/FREEFATFONT-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+:root { color-scheme: dark; font-family: Inter, "Helvetica Neue", Arial, sans-serif; background: #080a0b; color: #f5f6f4; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { min-width: 320px; min-height: 100%; margin: 0; }
+body { min-height: 100svh; background: #080a0b; }
+a { color: inherit; }
+.background-video { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.62) brightness(.46); transform: scale(1.015); }
+.scene-shade { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(6,8,9,.87), rgba(6,8,9,.58)), linear-gradient(0deg, rgba(6,8,9,.72), rgba(6,8,9,.22)); }
+.page-shell { position: relative; z-index: 2; padding: 26px 5.2% 60px; }
+.site-header { min-height: 68px; padding: 0 21px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,.13); border-radius: 15px; background: rgba(18,21,22,.42); box-shadow: 0 14px 46px rgba(0,0,0,.15), inset 0 1px rgba(255,255,255,.035); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+.logo { width: 35px; height: 35px; object-fit: cover; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); }
+.brand-name { font-family: "FreeFat", sans-serif; font-size: 24px; line-height: 1; }
+.brand-dot { color: #b6e6c1; }
+.back-link { display: inline-flex; align-items: center; gap: 9px; color: rgba(245,247,245,.68); font-size: 12px; text-decoration: none; transition: color .2s ease; }
+.back-link:hover { color: white; }
+.back-link span { font-size: 16px; }
+main { width: min(900px, 100%); margin: 0 auto; padding: 62px 0 0; }
+.page-intro { margin: 0 0 35px 4px; animation: fade-up .7s ease both; }
+.eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 21px; color: rgba(234,239,235,.66); font-size: 9px; font-weight: 600; letter-spacing: .19em; }
+.eyebrow span { width: 27px; height: 1px; background: #b1d8ba; }
+.page-intro h1 { margin: 0; font-family: "FreeFat", sans-serif; font-size: clamp(56px, 7vw, 82px); font-weight: 400; letter-spacing: .015em; line-height: 1.04; }
+.page-intro h1 span { color: rgba(247,248,247,.8); }
+.page-intro > p:last-child { max-width: 510px; margin: 18px 0 0; color: rgba(240,243,240,.62); font-size: 14px; line-height: 1.7; }
+.document { overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-radius: 17px; background: rgba(16,19,19,.78); box-shadow: 0 26px 90px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.045); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); animation: fade-up .8s .1s both; }
+.document-top { min-height: 53px; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.1); color: rgba(239,243,239,.43); font-size: 9px; font-weight: 700; letter-spacing: .15em; }
+.document-index i { padding: 0 4px; color: rgba(239,243,239,.26); font-style: normal; }
+.document-content { padding: clamp(25px, 5vw, 48px) clamp(23px, 6vw, 62px) 54px; color: rgba(238,241,238,.72); font-size: 14px; line-height: 1.82; overflow-wrap: anywhere; }
+.document-content > p:first-child { margin-top: 0; color: #f4f6f3; font-size: 18px; font-weight: 600; letter-spacing: -.015em; }
+.document-content .last-updated { margin: -4px 0 25px; color: rgba(238,241,238,.48); font-size: 11px; }
+.document-content .last-updated strong { color: rgba(238,241,238,.7); }
+.document-content p { margin: 0 0 16px; }
+.document-content h2 { margin: 38px 0 13px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.09); color: #f4f6f3; font-size: 18px; font-weight: 550; letter-spacing: -.02em; line-height: 1.4; }
+.document-content h2:first-of-type { margin-top: 30px; }
+.document-content ul, .document-content ol { margin: 2px 0 20px; padding-left: 21px; }
+.document-content li { margin: 6px 0; padding-left: 4px; }
+.document-content li::marker { color: #acd5b6; }
+.document-content .section-rule { height: 1px; margin: 34px 0; border: 0; background: rgba(255,255,255,.1); }
+.document-content .review-heading { margin-top: 42px; padding: 17px 19px; border: 1px solid rgba(183,221,192,.2); border-radius: 9px; background: rgba(183,221,192,.055); }
+.document-content .next-step { margin-top: 24px; padding: 17px 19px; border-left: 2px solid #b1d8ba; background: rgba(255,255,255,.035); color: rgba(238,241,238,.63); }
+.document-content .next-step strong { color: #f2f4f1; }
+.return-link { width: fit-content; min-height: 48px; margin: 22px 0 0 auto; padding: 0 17px; display: flex; align-items: center; justify-content: space-between; gap: 26px; border: 1px solid rgba(255,255,255,.22); border-radius: 8px; background: rgba(255,255,255,.07); color: rgba(246,247,245,.9); font-size: 11px; font-weight: 600; text-decoration: none; backdrop-filter: blur(12px); transition: transform .2s ease, background .2s ease; }
+.return-link:hover { transform: translateY(-2px); background: rgba(255,255,255,.13); }
+.return-link span { font-size: 15px; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 600px) { .page-shell { padding: 16px 18px 34px; } .site-header { min-height: 60px; padding: 0 14px; border-radius: 13px; } .logo { width: 31px; height: 31px; } .brand-name { font-size: 21px; } .back-link { gap: 6px; font-size: 10px; } main { padding-top: 43px; } .page-intro { margin-bottom: 25px; } .page-intro h1 { font-size: clamp(51px, 13vw, 69px); } .page-intro > p:last-child { font-size: 12px; } .document { border-radius: 13px; } .document-top { min-height: 47px; padding: 0 17px; font-size: 8px; } .document-content { padding: 25px 20px 36px; font-size: 13px; line-height: 1.75; } .document-content > p:first-child { font-size: 16px; } .document-content h2 { margin-top: 31px; font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
