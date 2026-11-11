@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FRONTEND = ROOT / "frontend"
 DB_PATH = Path(os.environ.get("FC_DATABASE", Path(__file__).with_name("community.sqlite3")))
 MAX_BODY = 2 * 1024 * 1024
-COLLECTIONS = {"opportunities", "freelancers", "community_posts"}
+COLLECTIONS = {"opportunities", "freelancers", "community_posts", "applications"}
 
 
 def connect():
@@ -75,7 +75,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/health":
             return self.send_json(200, {"ok": True, "service": "freelance.community"})
         api_name = path.removeprefix("/api/")
-        collection = {"opportunities": "opportunities", "freelancers": "freelancers", "community/posts": "community_posts"}.get(api_name)
+        collection = {"opportunities": "opportunities", "freelancers": "freelancers", "community/posts": "community_posts", "applications": "applications"}.get(api_name)
         if path.startswith("/api/"):
             if not collection:
                 return self.send_json(404, {"error": "API route not found."})
@@ -86,7 +86,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         path = urllib.parse.urlsplit(self.path).path
-        collection = {"/api/opportunities": "opportunities", "/api/freelancers": "freelancers", "/api/community/posts": "community_posts"}.get(path)
+        collection = {"/api/opportunities": "opportunities", "/api/freelancers": "freelancers", "/api/community/posts": "community_posts", "/api/applications": "applications"}.get(path)
         if not collection:
             return self.send_json(404, {"error": "API route not found."})
         try:
@@ -95,8 +95,10 @@ class Handler(BaseHTTPRequestHandler):
                 required = ("title", "company", "description")
             elif collection == "freelancers":
                 required = ("name", "email")
-            else:
+            elif collection == "community_posts":
                 required = ("name", "copy")
+            else:
+                required = ("jobTitle", "applicantName", "applicantEmail", "recruiterEmail")
             if any(not str(item.get(field, "")).strip() for field in required):
                 return self.send_json(400, {"error": "Required fields are missing."})
             if collection == "freelancers":
@@ -111,7 +113,7 @@ class Handler(BaseHTTPRequestHandler):
                 record_id = secrets.token_urlsafe(12)
                 item.update(id=record_id, createdAt=now())
                 with connect() as db:
-                    db.execute("INSERT INTO records(id,collection,email,data,created_at,updated_at) VALUES(?,?,?,?,?,?)", (record_id, collection, item.get("ownerEmail"), json.dumps(item, ensure_ascii=False), now(), now()))
+                    db.execute("INSERT INTO records(id,collection,email,data,created_at,updated_at) VALUES(?,?,?,?,?,?)", (record_id, collection, item.get("applicantEmail") if collection == "applications" else item.get("ownerEmail"), json.dumps(item, ensure_ascii=False), now(), now()))
             return self.send_json(201, item)
         except ValueError as exc:
             return self.send_json(400, {"error": str(exc)})
